@@ -1,5 +1,5 @@
-const sleeve = require('./sleeve.js');
+const sleeve = require('./index.js');
 
 const b= {}
 
-console.log(b, "f", 66);
+console.log(sleeve(b, "f", 66));

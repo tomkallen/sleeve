@@ -1,4 +1,4 @@
-const sleeve= function(obj, path, fallback = null) {
+function sleeve(obj, path, fallback = null) {
     let _ = obj;
     path = path.split(".");
     for (let key of path) {
