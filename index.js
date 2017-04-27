@@ -9,6 +9,8 @@ function sleeve(obj, path, fallback = null) {
         }
     }
     return _;
-};
+}
 
-module.exports = sleeve;
+if (typeof module !== "undefined" && module.exports) {
+    module.exports = sleeve;
+}
