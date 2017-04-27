@@ -8,8 +8,7 @@ explore, search for and read Javascript object nested properties without many a 
 `npm install --save sleeve`
 
 ##### Usage:
-
-`const sleeve = require('sleeve')`
+`const sleeve = require('sleeve');`
 
 ##### Syntax:
 `sleeve(object, "chain.of.properties", fallbackValue)`
@@ -30,10 +29,13 @@ const user = {
     }
 };
 ```
-_fallbacks:_
-`const email = sleeve(user, "contacts.email.primaryEmail", "no email provided")`
 
-`console.log(email)  // "no email provided"`
+###### not okay:
+`const email = user && user.contacts && user.contacts.email && user.contacts.email.primaryEmail ? user.contacts.email.primaryEmail : "no email provided"`   
+###### okay:
+_fallbacks:_
+`const email = sleeve(user, "contacts.email.primaryEmail", "no email provided")`   
+`console.log(email)  // "no email provided"`   
 
 _property checking:_
 ```
