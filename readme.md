@@ -12,7 +12,8 @@ explore, search for and read Javascript object nested properties without many a 
 `const sleeve = require('sleeve');`
 
 ##### Syntax:
-`sleeve(object, "chain.of.properties", fallbackValue)`
+`sleeve(object, "chain.of.properties.that.can.be.rather.long", fallbackValue)`  
+
 ##### Examples:
 
 ```
@@ -29,14 +30,19 @@ const user = {
         }
     }
 };
-```
+```   
 
-###### not okay:   
-`const email = user && user.contacts && user.contacts.email && user.contacts.email.primaryEmail ? user.contacts.email.primaryEmail : "no email provided";`   
-###### okay:   
+##### not okay:   
+```
+const email = user && user.contacts && user.contacts.email && user.contacts.email.primaryEmail ? user.contacts.email.primaryEmail : "no email provided";
+```   
+
+##### okay:   
 _fallbacks:_  
-`const email = sleeve(user, "contacts.email.primaryEmail", "no email provided");`   
-`console.log(email);  // "no email provided"`   
+```
+const email = sleeve(user, "contacts.email.primaryEmail", "no email provided");
+console.log(email);  // "no email provided"
+```   
 
 _property checking:_   
 ```
@@ -47,7 +53,11 @@ if (!sleeve(user, "location.country.code")) {
 ```   
 
 _reading value:_   
-`console.log(sleeve(user, "data.a.b.c.going.too.deep")); // null`   
+```
+console.log(sleeve(user, "data.a.b.c.going.too.deep")); // null
+```   
 
 _callback function:_   
-`sleeve(user, "i.do.not.know.where.to.go", () => console.log("this is a fail"));`
+```
+sleeve(user, "i.do.not.know.where.to.go", () => console.log("this is a fail"));
+```   
