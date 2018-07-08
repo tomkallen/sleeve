@@ -9,10 +9,10 @@ explore, search for and read Javascript object nested properties without many a 
 `npm install --save sleeve`
 
 ##### Usage:
-`const sleeve = require('sleeve');`
+`const s = require('sleeve');`
 
 ##### Syntax:
-`sleeve(object, "chain.of.properties.that.can.be.rather.long", fallbackValue)`  
+`s(object, "chain.of.properties.that.can.be.rather.long", fallbackValue)`  
 
 ##### Examples:
 
@@ -40,24 +40,24 @@ const email = user && user.contacts && user.contacts.email && user.contacts.emai
 ##### okay:   
 _fallbacks:_  
 ```
-const email = sleeve(user, "contacts.email.primaryEmail", "no email provided");
+const email = s(user, "contacts.email.primaryEmail", "no email provided");
 console.log(email);  // "no email provided"
 ```   
 
 _property checking:_   
 ```
 let countryCode;
-if (!sleeve(user, "location.country.code")) {
+if (!s(user, "location.country.code")) {
     countryCode = "US";
 }
 ```   
 
 _reading value:_   
 ```
-console.log(sleeve(user, "data.a.b.c.going.too.deep")); // null
+console.log(s(user, "data.a.b.c.going.too.deep")); // null
 ```   
 
 _callback function:_   
 ```
-sleeve(user, "i.do.not.know.where.to.go", () => console.log("this is a fail"));
+s(user, "i.do.not.know.where.to.go", () => console.log("this is a fail"));
 ```   
